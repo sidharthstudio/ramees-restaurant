@@ -1,7 +1,6 @@
-export type Phone = { label: string; number: string };
+import { img } from "../lib/assets";
 
-/** Files live in public/, so prefix them with Vite's base (Pages serves a subpath). */
-export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+export type Phone = { label: string; number: string };
 
 export type Branch = {
   id: string;
@@ -95,7 +94,7 @@ export const SIGNATURES: Dish[] = [
       "The plate the regulars order before they sit down. Mutton cooked down in our house masala, finished with fried shallots and curry leaves.",
     price: 412,
     tags: ["House signature", "Mutton"],
-    image: asset("img/beef.webp"),
+    image: img("beef.webp"),
     alt: "Dark, slow-cooked mutton masala in a serving pan",
   },
   {
@@ -104,7 +103,7 @@ export const SIGNATURES: Dish[] = [
       "Chicken in a yoghurt-and-spice Arabian marinade, smoked over charcoal until the skin blisters. Served with kuboos and garlic toum.",
     meta: "Charcoal grilled · half / full",
     tags: ["Arabian", "Charcoal"],
-    image: asset("img/alfaham.webp"),
+    image: img("alfaham.webp"),
     alt: "Charcoal-grilled chicken served with flatbread",
   },
   {
@@ -113,7 +112,7 @@ export const SIGNATURES: Dish[] = [
       "Our hottest seller. Boneless chicken tossed in a glossy chilli-garlic glaze with capsicum and onion — sharp, sweet and seriously spicy.",
     price: 398,
     tags: ["Indo-Chinese", "Spicy"],
-    image: asset("img/chilli-chicken.webp"),
+    image: img("chilli-chicken.webp"),
     alt: "Chilli chicken tossed with peppers on a dark slate",
   },
   {
@@ -122,7 +121,7 @@ export const SIGNATURES: Dish[] = [
       "Long-grain rice layered over mutton and sealed for a slow dum. Reviewers call it the reason to drive to Kollam — it goes out until the pot is empty.",
     meta: "Slow dum · served with raita",
     tags: ["Malabar", "Bestseller"],
-    image: asset("img/biryani.webp"),
+    image: img("biryani.webp"),
     alt: "A plate of biriyani rice with meat",
   },
   {
@@ -131,7 +130,7 @@ export const SIGNATURES: Dish[] = [
       "Chicken masala folded into flaky porotta and pressed on the tawa. Order it with a bowl of Ashtamudi kozhi curry on the side.",
     price: 390,
     tags: ["Ramees favourite"],
-    image: asset("img/porotta.webp"),
+    image: img("porotta.webp"),
     alt: "Flaky porotta served with curry on a plate",
   },
   {
@@ -140,7 +139,7 @@ export const SIGNATURES: Dish[] = [
       "Rose syrup, vermicelli, basil seeds and a scoop of ice cream in a tall glass — the way every good Kollam meal ends.",
     meta: "Rose · vermicelli · ice cream",
     tags: ["Dessert"],
-    image: asset("img/falooda.webp"),
+    image: img("falooda.webp"),
     alt: "Falooda dessert with ice cream and rose syrup",
   },
 ];
@@ -252,18 +251,18 @@ export const MENU: MenuCategory[] = [
 ];
 
 export const GALLERY = [
-  { src: asset("img/alfaham.webp"), caption: "Alfaham off the charcoal", alt: "Charcoal-grilled chicken with flatbread" },
-  { src: asset("img/grill-platter.webp"), caption: "The Arabian mixed grill", alt: "A platter of grilled meats and dips" },
-  { src: asset("img/shawarma.webp"), caption: "Shawarma, cut and stacked", alt: "Shawarma wrap with fries" },
-  { src: asset("img/rotisserie.webp"), caption: "Chickens turning on the spit", alt: "Rows of chickens on a rotisserie" },
-  { src: asset("img/biryani.webp"), caption: "Mutton biriyani, dum-sealed", alt: "Biriyani rice with meat" },
-  { src: asset("img/porotta.webp"), caption: "Porotta, fresh off the tawa", alt: "Flaky porotta with curry" },
-  { src: asset("img/chilli-chicken.webp"), caption: "Chilly chicken, house style", alt: "Chilli chicken with capsicum" },
-  { src: asset("img/mocktail.webp"), caption: "Mocktails at the counter", alt: "A red mocktail in a coupe glass" },
-  { src: asset("img/gulab-jamun.webp"), caption: "Gulab jamun, warm", alt: "Gulab jamun in syrup" },
-  { src: asset("img/interior.webp"), caption: "The dining hall", alt: "Restaurant dining hall with seating" },
-  { src: asset("img/lamp.webp"), caption: "Evening light", alt: "A brass-lined pendant lamp" },
-  { src: asset("img/falooda.webp"), caption: "Falooda for the table", alt: "Falooda with ice cream" },
+  { src: img("alfaham.webp"), caption: "Alfaham off the charcoal", alt: "Charcoal-grilled chicken with flatbread" },
+  { src: img("grill-platter.webp"), caption: "The Arabian mixed grill", alt: "A platter of grilled meats and dips" },
+  { src: img("shawarma.webp"), caption: "Shawarma, cut and stacked", alt: "Shawarma wrap with fries" },
+  { src: img("rotisserie.webp"), caption: "Chickens turning on the spit", alt: "Rows of chickens on a rotisserie" },
+  { src: img("biryani.webp"), caption: "Mutton biriyani, dum-sealed", alt: "Biriyani rice with meat" },
+  { src: img("porotta.webp"), caption: "Porotta, fresh off the tawa", alt: "Flaky porotta with curry" },
+  { src: img("chilli-chicken.webp"), caption: "Chilly chicken, house style", alt: "Chilli chicken with capsicum" },
+  { src: img("mocktail.webp"), caption: "Mocktails at the counter", alt: "A red mocktail in a coupe glass" },
+  { src: img("gulab-jamun.webp"), caption: "Gulab jamun, warm", alt: "Gulab jamun in syrup" },
+  { src: img("interior.webp"), caption: "The dining hall", alt: "Restaurant dining hall with seating" },
+  { src: img("lamp.webp"), caption: "Evening light", alt: "A brass-lined pendant lamp" },
+  { src: img("falooda.webp"), caption: "Falooda for the table", alt: "Falooda with ice cream" },
 ];
 
 export const REVIEWS = [

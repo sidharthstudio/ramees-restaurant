@@ -1,18 +1,26 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig(({ mode }) => ({
-  // GitHub project pages live under /<repo>/.
-  base: mode === "github-pages" ? "/ramees-restaurant/" : "/",
-  plugins: [react()],
-  server: {
-    host: "0.0.0.0",
-    port: 3000,
-    // The cloud preview origin is a *.style.dev subdomain.
-    allowedHosts: [".style.dev", "localhost", "127.0.0.1"],
-  },
-  build: {
-    target: "es2020",
-    chunkSizeWarningLimit: 1200,
-  },
-}));
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, ".", "");
+
+  // A GitHub Pages project site lives under the path of its URL
+  // (/ramees-restaurant/); local dev and plain builds stay at the root.
+  const sitePath = env.VITE_SITE_URL?.replace(/^https?:\/\/[^/]+/, "") || "/";
+  const base = mode === "github-pages" ? sitePath : "/";
+
+  return {
+    base,
+    plugins: [react()],
+    server: {
+      host: "0.0.0.0",
+      port: 3000,
+      // The cloud preview origin is a *.style.dev subdomain.
+      allowedHosts: [".style.dev", "localhost", "127.0.0.1"],
+    },
+    build: {
+      target: "es2020",
+      chunkSizeWarningLimit: 1200,
+    },
+  };
+});
