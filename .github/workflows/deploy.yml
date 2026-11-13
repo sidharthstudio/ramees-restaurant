@@ -20,6 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Required: points the Pages site at Actions artifacts. Without it the repo
+      # silently falls back to publishing the raw branch, not the built site.
+      - uses: actions/configure-pages@v5
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
