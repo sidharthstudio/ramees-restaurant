@@ -1,0 +1,8 @@
+node_modules
+dist
+artifacts
+freebuff-sites-build
+.freebuff
+.DS_Store
+*.local
+*.log
