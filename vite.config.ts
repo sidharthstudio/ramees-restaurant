@@ -4,8 +4,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, ".", "");
 
-  // A GitHub Pages project site lives under the path of its URL
-  // (/ramees-restaurant/); local dev and plain builds stay at the root.
+  // A GitHub Pages project site is served from the path of its URL; local dev
+  // and plain builds stay at the root.
   const sitePath = env.VITE_SITE_URL?.replace(/^https?:\/\/[^/]+/, "") || "/";
   const base = mode === "github-pages" ? sitePath : "/";
 
