@@ -1,7 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  // GitHub project pages live under /<repo>/.
+  base: mode === "github-pages" ? "/ramees-restaurant/" : "/",
   plugins: [react()],
   server: {
     host: "0.0.0.0",
@@ -13,4 +15,4 @@ export default defineConfig({
     target: "es2020",
     chunkSizeWarningLimit: 1200,
   },
-});
+}));

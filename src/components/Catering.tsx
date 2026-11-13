@@ -1,4 +1,4 @@
-import { BRAND } from "../data/restaurant";
+import { BRAND, asset } from "../data/restaurant";
 
 const CATERING_MESSAGE = encodeURIComponent(
   "Hello Ramees Restaurant! I'd like a catering quote.\n\nOccasion: \nDate: \nNumber of guests: \nDelivery / venue: \n",
@@ -9,7 +9,7 @@ export default function Catering() {
     <section className="catering" id="catering">
       <img
         className="catering__bg"
-        src="/img/rotisserie.webp"
+        src={asset("img/rotisserie.webp")}
         alt=""
         aria-hidden="true"
         loading="lazy"
