@@ -565,6 +565,17 @@ h2 em {
   height: 100% !important;
 }
 
+.hero__fallback {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 45%;
+  opacity: 0.55;
+  filter: saturate(0.95) contrast(1.05);
+  -webkit-mask-image: radial-gradient(62% 62% at 58% 45%, #000 32%, transparent 78%);
+  mask-image: radial-gradient(62% 62% at 58% 45%, #000 32%, transparent 78%);
+}
+
 .hero__veil {
   position: absolute;
   inset: 0;

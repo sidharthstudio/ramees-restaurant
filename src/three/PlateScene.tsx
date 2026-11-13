@@ -1,6 +1,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import type { ReactNode } from "react";
+import { img } from "../lib/assets";
 import * as THREE from "three";
 import { useInView, useIsCompact, usePrefersReducedMotion } from "../lib/hooks";
 
@@ -506,6 +507,25 @@ export default function PlateScene({ className }: { className?: string }) {
   const reduced = usePrefersReducedMotion();
   const compact = useIsCompact();
   const { ref, inView } = useInView<HTMLDivElement>("240px");
+
+  // Without WebGL the canvas would throw and take the hero down with it;
+  // fall back to a still of the food instead.
+  const webgl = useMemo(() => {
+    try {
+      const probe = document.createElement("canvas");
+      return Boolean(probe.getContext("webgl2") || probe.getContext("webgl"));
+    } catch {
+      return false;
+    }
+  }, []);
+
+  if (!webgl) {
+    return (
+      <div ref={ref} className={className} aria-hidden="true">
+        <div className="hero__fallback" style={{ backgroundImage: `url(${img("biryani.webp")})` }} />
+      </div>
+    );
+  }
 
   return (
     <div ref={ref} className={className} aria-hidden="true">

@@ -1,15 +1,31 @@
-import { Suspense, lazy } from "react";
+import { Component, Suspense, lazy } from "react";
+import type { ReactNode } from "react";
 import { BRAND, RATING } from "../data/restaurant";
 
 // The 3D scene pulls in three.js, so it loads after the hero text paints.
 const PlateScene = lazy(() => import("../three/PlateScene"));
 
+/** If the scene fails for any reason, keep the hero copy and drop the canvas. */
+class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
+
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <Suspense fallback={null}>
-        <PlateScene className="hero__scene" />
-      </Suspense>
+      <SceneBoundary>
+        <Suspense fallback={null}>
+          <PlateScene className="hero__scene" />
+        </Suspense>
+      </SceneBoundary>
       <div className="hero__veil" aria-hidden="true" />
       <div className="hero__grain" aria-hidden="true" />
 
